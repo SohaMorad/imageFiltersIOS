@@ -20,7 +20,7 @@ class FiltersViewController: UIViewController , UIImagePickerControllerDelegate,
         
         
         
-        //imagePicker.allowsEditing = false
+        imagePicker.allowsEditing = true
         imagePicker.sourceType = .photoLibrary
         
         present(imagePicker, animated: true, completion: nil)
@@ -80,11 +80,12 @@ class FiltersViewController: UIViewController , UIImagePickerControllerDelegate,
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+        if let pickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             
             
            // imgPlaceHolder.contentMode = .scaleAspectFit
             imgPlaceHolder.image = pickedImage
+            
             
                 orgImg.name = pickedImage
             dismiss(animated: true, completion: nil)
